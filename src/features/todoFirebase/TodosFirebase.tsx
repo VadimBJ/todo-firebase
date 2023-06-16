@@ -12,6 +12,8 @@ import {
 } from "firebase/firestore";
 import { db } from "../../api/firebase";
 import { AiOutlineDelete } from "react-icons/ai";
+import { smiles } from "./smiles";
+import "./TodosFirebase.css";
 
 export default function TodosFirebase(): JSX.Element {
   const [todos, setTodos] = useState<DocumentData[]>([]);
@@ -40,6 +42,7 @@ export default function TodosFirebase(): JSX.Element {
 
   return (
     <>
+      <div className="smileContainer">{smiles}</div>
       <form onSubmit={addTodo} name="add_todo" className="todoForm">
         <input
           className="todoInput"

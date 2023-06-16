@@ -81,3 +81,16 @@
   border-radius: 4px;
   font-size: 20px;
 }
+
+.smileContainer {
+  position: absolute;
+  border: 1px solid lightgray;
+  border-radius: 20px 0 0 20px;
+  padding: 10px;
+  top: 200px;
+  left: 10px;
+  width: 250px;
+  height: 400px;
+  font-size: 1.2rem;
+  overflow-y: scroll;  
+}
