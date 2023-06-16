@@ -11,7 +11,6 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "../../api/firebase";
-import { Tooltip } from "react-tooltip";
 import { AiOutlineDelete } from "react-icons/ai";
 
 export default function TodosFirebase(): JSX.Element {
