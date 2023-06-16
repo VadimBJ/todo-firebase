@@ -10,7 +10,7 @@ function App(): JSX.Element {
   return (
     <div className="App">
       <nav className="navigation">
-        <NavLink to={"todo-redux"}>
+        <NavLink to={"todo--redux"}>
           <img className="navIco" src={reduxImg} alt="redux" />
         </NavLink>
         <NavLink to={"todo-firebase"}>
@@ -20,7 +20,7 @@ function App(): JSX.Element {
       <h1 className="h1title">To Do List</h1>
       <Outlet />
       <Routes>
-        <Route path="todo-redux" element={<ToDo />} />
+        <Route path="todo--redux" element={<ToDo />} />
         <Route path="todo-firebase" element={<TodosFirebase />} />
         <Route path="*" element={<TodosFirebase />} />
       </Routes>
