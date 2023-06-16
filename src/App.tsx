@@ -20,6 +20,7 @@ function App(): JSX.Element {
       </nav>
       <h1 className="h1title">To Do List</h1>
       <Routes>
+      <Route path="/" element={<TodosFirebase />} />
       <Route path="todo-redux" element={<ToDo />} />
       <Route path="todo-firebase" element={<TodosFirebase />} />
       </Routes>
