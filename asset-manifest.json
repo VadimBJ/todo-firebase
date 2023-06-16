@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/todo-firebase/static/css/main.693af289.css",
-    "main.js": "/todo-firebase/static/js/main.fc9fb08e.js",
+    "main.js": "/todo-firebase/static/js/main.d0bb0003.js",
     "static/media/fon.jpg": "/todo-firebase/static/media/fon.1f9105b0d1e07e52c589.jpg",
-    "static/media/firebase1.png": "/todo-firebase/static/media/firebase1.6dbe0bbebdc40f9b9d2f.png",
+    "static/media/firebase.png": "/todo-firebase/static/media/firebase.6dbe0bbebdc40f9b9d2f.png",
     "index.html": "/todo-firebase/index.html",
     "main.693af289.css.map": "/todo-firebase/static/css/main.693af289.css.map",
-    "main.fc9fb08e.js.map": "/todo-firebase/static/js/main.fc9fb08e.js.map"
+    "main.d0bb0003.js.map": "/todo-firebase/static/js/main.d0bb0003.js.map"
   },
   "entrypoints": [
     "static/css/main.693af289.css",
-    "static/js/main.fc9fb08e.js"
+    "static/js/main.d0bb0003.js"
   ]
 }
