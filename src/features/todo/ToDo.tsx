@@ -17,7 +17,7 @@ export default function ToDo(): JSX.Element {
   const toDoList = useSelector((state: RootState) => state.todo);
   const toDoListLength = useSelector((state: RootState) => state.todo.length);
 
-  useEffect(() => {},[isDone]);
+  useEffect(() => {setToDoLS();},[isDone, toDoListLength, edit]);
 
   const handleEdit = (event: React.FormEvent): void => {
     event.preventDefault();
@@ -37,7 +37,7 @@ export default function ToDo(): JSX.Element {
     event.preventDefault();
     if (description.trim()) {
       const todoItem: TodoState = {
-        id: toDoListLength + 1,
+        id: (Date.now()),
         description: description.trim(),
         isDone: false,
       };
@@ -45,6 +45,10 @@ export default function ToDo(): JSX.Element {
       setDescription("");
     }
   };
+
+  function setToDoLS(){
+    localStorage.setItem('todos', JSON.stringify(toDoList))
+  }
 
   return (
     <div className="todoContainer">

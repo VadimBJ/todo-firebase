@@ -2,7 +2,13 @@ import Action from "./types/Action";
 import TodoState from "./types/todoState";
 import todoState from "./types/todoState";
 
-const initialState: todoState[] = [];
+const initialState: todoState[] = getToDoLS();
+
+
+function getToDoLS(): todoState[] {
+  const todos = localStorage.getItem('todos');
+  return todos ? JSON.parse(todos) : [];
+}
 
 export default function todoReducer(
   state: todoState[] = initialState,
@@ -10,18 +16,19 @@ export default function todoReducer(
 ): TodoState[] {
   switch (action.type) {
     case "addToDo":
-      state.push(action.payload);
-      return state;
+      return [...state, action.payload];
     case "deleteToDo":
-      state = state.filter((obj) => obj.id !== action.payload);
-      return state;
-    case "editToDo":
-      state.map((obj) => {
-        if (obj.id === action.payload.id) {
-          obj.description = action.payload.description;
-        }
-      });
-      return state;
+      return state.filter((obj) => obj.id !== action.payload);
+      case "editToDo":
+        return state.map((obj) => {
+          if (obj.id === action.payload.id) {
+            return {
+              ...obj,
+              description: action.payload.description,
+            };
+          }
+          return obj;
+        });
     default:
       return state;
   }
