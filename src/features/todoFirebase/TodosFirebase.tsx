@@ -12,13 +12,14 @@ import {
 } from "firebase/firestore";
 import { db } from "../../api/firebase";
 import { AiOutlineDelete } from "react-icons/ai";
-import { smiles } from "./smiles";
+import { smilesArr } from "./smiles";
 import "./TodosFirebase.css";
 
 export default function TodosFirebase(): JSX.Element {
   const [todos, setTodos] = useState<DocumentData[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [input, setInput] = useState("");
+  const [showSmiles, setShowSmiles] = useState(false);
   const q = query(collection(db, "todos"), orderBy("timestamp", "desc"));
   useEffect(() => {
     onSnapshot(q, (snapshot) => {
@@ -39,11 +40,17 @@ export default function TodosFirebase(): JSX.Element {
     });
     setInput("");
   };
+  console.log(smilesArr);
 
   return (
     <>
-      <div className="smileContainer">{smiles}</div>
-      <form onSubmit={addTodo} name="add_todo" className="todoForm">
+      <form onSubmit={addTodo} name="add_todo" className="todoFormFb">
+        <div
+          className={showSmiles ? "smileTogle active" : "smileTogle"}
+          onClick={() => setShowSmiles(!showSmiles)}
+        >
+          🙂
+        </div>
         <input
           className="todoInput"
           type="text"
@@ -56,7 +63,23 @@ export default function TodosFirebase(): JSX.Element {
           Add Task
         </button>
       </form>
-
+      {showSmiles && (
+        <div className="smileContainer">
+          {smilesArr.map((smile, index) => {
+            return (
+              <div
+                key={index}
+                className="smile"
+                onClick={() => {
+                  setInput(input + smile);
+                }}
+              >
+                {smile}
+              </div>
+            );
+          })}
+        </div>
+      )}
       <div className="todoListContainer">
         {todos.map((el) => (
           <div key={el.id}>
