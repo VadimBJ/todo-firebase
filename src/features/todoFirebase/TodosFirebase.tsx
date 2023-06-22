@@ -46,6 +46,7 @@ export default function TodosFirebase(): JSX.Element {
     <>
       <form onSubmit={addTodo} name="add_todo" className="todoFormFb">
         <div
+          title="Click for smiles :)"
           className={showSmiles ? "smileTogle active" : "smileTogle"}
           onClick={() => setShowSmiles(!showSmiles)}
         >
@@ -84,6 +85,7 @@ export default function TodosFirebase(): JSX.Element {
         {todos.map((el) => (
           <div key={el.id}>
             <button
+              title="Delete task"
               className="deleteButton"
               type="button"
               onClick={() => {
